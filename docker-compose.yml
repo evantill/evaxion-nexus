@@ -3,6 +3,7 @@ version: "3.3"
 services:
 
   traefik:
+    restart: always
     image: "traefik:v2.9"
     container_name: "traefik"
     command:
@@ -22,6 +23,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   whoami:
+    restart: always
     image: "traefik/whoami"
     container_name: "simple-service"
     labels:
@@ -31,6 +33,7 @@ services:
       - "traefik.http.routers.whoami.tls.certresolver=myresolver"
 
   nexus:
+    restart: always
     image: sonatype/nexus3
     container_name: nexus
     volumes:
