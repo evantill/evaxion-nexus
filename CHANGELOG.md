@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/evantill/evaxion-nexus/compare/v1.1.0...v1.1.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* **nexus:** restart nexus on server reboot ([50ca2ac](https://github.com/evantill/evaxion-nexus/commit/50ca2acfd47b255e0bb5fde2f5b3bf551debab5c))
+
 ## [1.1.0](https://github.com/evantill/evaxion-nexus/compare/v1.0.0...v1.1.0) (2023-03-08)
 
 
