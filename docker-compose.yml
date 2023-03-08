@@ -6,17 +6,16 @@ services:
     image: "traefik:v2.9"
     container_name: "traefik"
     command:
-      - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.myresolver.acme.email=eric.vantillard@evaxion.fr"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "443:443"
+      #traefik api port
       - "8081:8080"
     volumes:
       - "letsencrypt_data:/letsencrypt"
@@ -27,10 +26,31 @@ services:
     container_name: "simple-service"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`nexus.evaxion.fr`)"
+      - "traefik.http.routers.whoami.rule=Host(`www.nexus.evaxion.fr`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls.certresolver=myresolver"
 
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    volumes:
+      - "nexus_data:/nexus-data"
+    labels:
+      - "traefik.enable=true"
+      # nexus
+      - "traefik.http.routers.nexus.rule=Host(`nexus.evaxion.fr`)"
+      - "traefik.http.routers.nexus.entrypoints=websecure"
+      - "traefik.http.routers.nexus.tls.certresolver=myresolver"
+      - "traefik.http.routers.nexus.service=nexus-service"
+      - "traefik.http.services.nexus-service.loadBalancer.server.port=8081"
+      # docker registry
+      - "traefik.http.routers.registry.rule=Host(`registry.evaxion.fr`)"
+      - "traefik.http.routers.registry.entrypoints=websecure"
+      - "traefik.http.routers.registry.service=registry-service"
+      - "traefik.http.services.registry-service.loadBalancer.server.port=5000"
+
 volumes:
   letsencrypt_data: {}
+  nexus_data: {}
   
+
