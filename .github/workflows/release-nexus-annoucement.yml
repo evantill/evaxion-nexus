@@ -1,0 +1,13 @@
+on:
+  release:
+    types:
+      - released
+
+name: Nexus Release Annnoucement
+
+jobs:
+  release-graalvm-annoucement:
+    permissions:
+      contents: read
+    uses: ./.github/workflows/release-announcement.yml
+    secrets: inherit
