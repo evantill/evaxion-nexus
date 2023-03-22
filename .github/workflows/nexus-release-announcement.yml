@@ -3,10 +3,10 @@ on:
     types:
       - released
 
-name: Nexus Release Annnoucement
+name: Nexus Release Announcement
 
 jobs:
-  release-graalvm-annoucement:
+  nexus-release-announcement:
     permissions:
       contents: read
     uses: ./.github/workflows/release-announcement.yml

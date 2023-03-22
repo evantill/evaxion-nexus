@@ -2,17 +2,17 @@ on:
   workflow_call:
     inputs:
       thumbnail-url:
-        description: the thumbnail image
+        description: thumbnail image url for embeds
         type: string
         required: false
         default: "https://davidfpresents.com/wp-content/uploads/2018/02/shadok.jpg"
       image-url:
-        description: the banner of the released component
+        description: image url for embeds
         type: string
         required: false
         default: "https://miro.medium.com/v2/1*8-G_ojoQPPmnG8ig1RiZfg.png"
 
-name: Release Announcement
+name: Release Announcement on Discord
 
 env:
   DISCORD_WEBHOOK_RELEASE_ANNOUCEMENT: ${{ secrets.DISCORD_WEBHOOK_RELEASE_ANNOUCEMENT }}
@@ -30,7 +30,7 @@ env:
   THUMBNAIL_URL: "${{ inputs.thumbnail-url }}"
 
 jobs:
-  release-annoucement:
+  release-announcement-discord:
     runs-on: ubuntu-latest
     name: Sends custom message
     steps:
