@@ -5,12 +5,12 @@ on:
         description: repository banner image url
         type: string
         required: false
-        default: "https://github.com/${{ github.repository }}/tree/master/.github/banner.png"
+        default: "https://github.com/${{ github.repository }}/raw/main/.github/banner.png"
       repo-avatar-url:
         description: repository avatar iamge url
         type: string
         required: false
-        default: "https://github.com/${{ github.repository }}/tree/master/.github/avatar.png"      
+        default: "https://github.com/${{ github.repository }}/raw/main/.github/avatar.png"
 
 name: Release Announcement
 
