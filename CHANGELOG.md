@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/evantill/evaxion-nexus/compare/v1.1.1...v1.2.0) (2023-03-22)
+
+
+### Features
+
+* add release annoucement ([1886b2b](https://github.com/evantill/evaxion-nexus/commit/1886b2b6dc54f746f53db17277af850eac39ec86))
+
 ## [1.1.1](https://github.com/evantill/evaxion-nexus/compare/v1.1.0...v1.1.1) (2023-03-08)
 
 
