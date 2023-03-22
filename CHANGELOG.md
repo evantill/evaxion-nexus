@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/evantill/evaxion-nexus/compare/v1.2.0...v1.2.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* **docs:** add banner ([2eea197](https://github.com/evantill/evaxion-nexus/commit/2eea197cf5cf92d80272e49f2dec371e50341077))
+
 ## [1.2.0](https://github.com/evantill/evaxion-nexus/compare/v1.1.1...v1.2.0) (2023-03-22)
 
 
